@@ -73,3 +73,12 @@ Route::post('/save-reservation', [ReservationController::class, 'saveReservation
 
 //manage reservations
 Route::get('/manage-booking/{userId}', [ReservationController::class, 'manageReservation'])->name('reservation.manage');
+
+//display user reservation for editing
+Route::get('/edit-booking/{id}', [ReservationController::class, 'editReservation'])->name('reservation.edit');
+
+//update reservation
+Route::post('/update-booking/{id}', [ReservationController::class, 'updateReservation'])->name('reservation.update');
+
+//delete reservation
+Route::get('/delete-booking/{id}', [ReservationController::class, 'deleteReservation'])->name('reservation.delete');

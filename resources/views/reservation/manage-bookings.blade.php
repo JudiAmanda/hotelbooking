@@ -76,8 +76,8 @@
                 Check-in: {{ $reservation->check_out_date }}
                 </td>
                 <td>
-                    <a href=""> Edit</a> | 
-                    <a href=""> Delete</a>
+                    <a href="{{ route('reservation.edit', $reservation->id)}}"> Edit</a> | 
+                    <a href="{{url('delete-booking', $reservation->id)}}"> Cancel</a>
               </td>
             </tr>
             @endforeach

@@ -61,4 +61,44 @@ class ReservationController extends Controller
     return redirect()->back()->with('error', 'You must be  logged in to Manage Your Reservations');
     }
 
+
+    //implement Reservation update using this tutorial here
+//https://www.fundaofwebit.com/laravel-8/how-to-edit-update-data-in-laravel
+
+public function editReservation($id)
+{
+    $userReservation= Hotel::with('state', 'room')->findOrFail($id);
+    return view('reservation.edit', ['userReservation'=> $userReservation]);
+}
+
+public function updateReservation(Request $request, $id)
+{
+
+    $user = Auth::User();
+    $reservation = Reservation::find($id);
+    $reservation->room_id = $request->room_id;
+    $reservation->check_in_date = $request->check_in_date;
+    $reservation->check_out_date = $request->check_out_date;
+    if($reservation->update()){
+        return redirect()->route('reservation.manage' , $user->id)->with('success', 'Reservation successfully Updated!');
+    }else{
+        
+        return redirect()->back()->with('error', 'Error Updating  Reservation!'); 
+    }
+
+}
+
+
+public function deleteReservation($id){
+    $user = Auth::User();
+    if(Reservation::where('id', $id)->delete()){
+        return redirect()->route('reservation.manage', $user->id)->with('success','Reservation Succesfully Deleted!');
+    }
+    else{
+        
+        return redirect()->back()->with('error', 'Error Deleting  Reservation!'); 
+    }
+}
+
+
 }
