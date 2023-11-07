@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Models\Hotel;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,3 +64,6 @@ Route::get('/hotels', [HotelController::class, 'index'])->name('hotels');
 Route::get('/hotels/{hotelId}', [HotelController::class, 'hotelDetails'])->name('hotels.detail');
 
 Route::post('/save-review', [ReviewController::class, 'saveReview'])->name('save_review');
+
+//display reservation form
+Route::get('/reservation/{hotelId}', [ReservationController::class, 'index'])->name('reservation');
