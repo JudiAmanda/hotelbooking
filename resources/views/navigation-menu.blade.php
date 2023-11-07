@@ -5,19 +5,24 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="/dashboard">
                         <x-application-mark class="block h-9 w-auto" />
                     </a>
                 </div>
-
+               
+                
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="/dashboard" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link href="#" >
-                    {{ _('Make Reservation') }}
+                    <x-nav-link href="{{ url('hotels') }}" :active="request()->routeIs('dashboard')">
+                        {{ __('Hotels') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('reservation.manage', Auth::user()->id) }}" :active="request()->routeIs('dashboard')">
+                        {{ __('Manage Reservations') }}
+                    </x-nav-link>
+
                 </div>
             </div>
 
@@ -83,6 +88,7 @@
                                     <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                                 </button>
                             @else
+                            
                                 <span class="inline-flex rounded-md">
                                     <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
                                         {{ Auth::user()->name }}

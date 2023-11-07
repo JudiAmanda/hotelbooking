@@ -54,7 +54,7 @@ class ReservationController extends Controller
             $user = Auth::User();
        //Grab the particular logged in user's reservations
        // along with the hotel and room infomation
-         $reservations = $user->reservations()->with('hotel', 'room')->get();
+         $reservations = $user->reservation()->with('hotel', 'room')->get();
         return view('reservation/manage-bookings', ['reservations'=> $reservations]);
     }
     

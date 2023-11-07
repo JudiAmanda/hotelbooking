@@ -31,35 +31,6 @@
                 </header>
             @endif
 
-            <aside style="height:100%;" class="z-20 bg-black-100 text-black-100 w-1/5 px-2 py-4 absolute">
-          
-          <div class="max-w-sm mx-auto mt-20 p-4 shadow-md rounded-lg border-t-2 border-teal-400">
-    
-    <div class="flex flex-col gap-2 pl-2">
-    <x-nav-link href="/dashboard" >
-                
-                Dashboard
-               
-                  </x-nav-link>
-        <hr>
-        <x-nav-link href="#" >
-               
-               Manage Reservations
-               
-             </x-nav-link>
-        <hr>
-        <x-nav-link href="#" >
-               
-               Hotels
-               
-             </x-nav-link>
-        <hr> 
-
-    </div>
-</div>
-</aside>
- 
-
           <!-- Page Content -->
             <main>
                 

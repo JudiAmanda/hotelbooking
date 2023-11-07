@@ -22,7 +22,7 @@ class Reservation extends Model
         return $this->belongsTo(User::class);
     }
     public function hotel(){
-        return $this->belongsTo(Hotels::class);
+        return $this->belongsTo(Hotel::class);
     }
      
     public function room(){

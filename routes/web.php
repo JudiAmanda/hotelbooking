@@ -38,7 +38,7 @@ Route::middleware([
     ->limit(10)
     ->get();
    
-    $hotels = Hotel::with(['state'])->get();
+    $hotels = Hotel::with(['state'])->limit(3)->get();
 
     return view('dashboard', ['user' => $authenticated_user,
 'reservations' => $user_reservations, 
@@ -67,3 +67,9 @@ Route::post('/save-review', [ReviewController::class, 'saveReview'])->name('save
 
 //display reservation form
 Route::get('/reservation/{hotelId}', [ReservationController::class, 'index'])->name('reservation');
+
+//Save reservation
+Route::post('/save-reservation', [ReservationController::class, 'saveReservation'])->name('reservation.save');
+
+//manage reservations
+Route::get('/manage-booking/{userId}', [ReservationController::class, 'manageReservation'])->name('reservation.manage');
