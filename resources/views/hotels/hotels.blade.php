@@ -30,5 +30,8 @@
 
 @endforeach
 
+<footer align="center" style="width:100%; height:100%;">
+Copyright 2023 Hotel Reservation Inc
+</footer>
 
 </x-guest-layout>
