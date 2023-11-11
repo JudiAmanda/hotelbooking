@@ -20,7 +20,8 @@ use App\Http\Controllers\ReservationController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $hotels = Hotel::with(['state'])->limit(3)->get();
+    return view('welcome', ['hotels' => $hotels]);
 });
 
 Route::middleware([
