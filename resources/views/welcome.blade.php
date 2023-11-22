@@ -4,7 +4,7 @@
 <br><br><br><br><br><br>
 <h1 style="font-size: 70px; text-align: center" class="font-bold text-white"> Welcome To The Number One Nigeria Hotel Reservation Platform</h1>
 <div align="center">
-<form>
+<form action="{{ route('search.detail') }}">
 <input style="width: 250px;" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
  type="text" name="hotel-search" placeholder="search by a Nigeria State" />
 

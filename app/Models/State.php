@@ -13,10 +13,11 @@ class State extends Model
 
     protected $fillable = ['state_name'];
 
-    public function hotel(): hasMany
+    public function hotel()
     {
 
         return $this->hasMany(Hotel::class);
     }
+
 
 }

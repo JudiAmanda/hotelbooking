@@ -64,6 +64,8 @@ Route::get('/hotels', [HotelController::class, 'index'])->name('hotels');
 
 Route::get('/hotels/{hotelId}', [HotelController::class, 'hotelDetails'])->name('hotels.detail');
 
+Route::get('/hotel-search', [HotelController::class, 'hotelSearch'])->name('search.detail');
+
 Route::post('/save-review', [ReviewController::class, 'saveReview'])->name('save_review');
 
 //display reservation form

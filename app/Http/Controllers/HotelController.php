@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Hotel;
+use App\Models\State;
 
 class HotelController extends Controller
 {
@@ -26,7 +27,20 @@ class HotelController extends Controller
 
 
 
+// Method for handling hotel search 
+//by state
+    public function hotelSearch()
+    {
+        if(request('hotel-search')){
+        $hotelSearch = State::with('hotel')->where('state_name', 'like', '%' . request('hotel-search') . '%')->get();
 
+        return view('hotels/search-details', ['hotelSearch' => $hotelSearch]);
+    }else{
+        return redirect()->route('search.detail')->with('error', 'No hotel  found for that state');
+
+    }
+    }
+    
 
 
 
