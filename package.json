@@ -2,6 +2,7 @@
     "private": true,
     "type": "module",
     "scripts": {
+        "start": "php artisan serve --port $PORT",
         "dev": "vite",
         "build": "vite build"
     },
