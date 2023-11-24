@@ -2,7 +2,7 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "start": "npm run dev",
+        "start": "npm i",
         "dev": "vite",
         "build": "vite build"
     },
