@@ -2,7 +2,7 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "start": "php artisan serve --port $PORT",
+        "start": "node main.mjs",
         "dev": "vite",
         "build": "vite build"
     },
