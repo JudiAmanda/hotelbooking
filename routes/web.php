@@ -28,6 +28,7 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
+    'throttle:3, 1'
 ])->group(function () {
     Route::get('/dashboard', function () {  
 
@@ -50,7 +51,7 @@ Route::middleware([
 });
 
 
-Route::group(['prefix'=>'admin','middleware'=>['admin:admin']],function(){
+Route::group(['prefix'=>'admin','middleware'=>['admin:admin', 'throttle:3, 1']],function(){
  Route::get('/login', [AdminController::class, 'loginForm']);
  Route::post('/login', [AdminController::class, 'store'])->name('admin.login');
 });
@@ -66,7 +67,8 @@ Route::get('/hotels/{hotelId}', [HotelController::class, 'hotelDetails'])->name(
 
 Route::get('/hotel-search', [HotelController::class, 'hotelSearch'])->name('search.detail');
 
-Route::post('/save-review', [ReviewController::class, 'saveReview'])->name('save_review');
+//rate limiting number of reviews submitted per minute to three
+Route::middleware(['throttle:3, 1'])->post('/save-review', [ReviewController::class, 'saveReview'])->name('save_review');
 
 //display reservation form
 Route::get('/reservation/{hotelId}', [ReservationController::class, 'index'])->name('reservation');

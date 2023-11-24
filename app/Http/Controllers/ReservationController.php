@@ -33,12 +33,21 @@ class ReservationController extends Controller
     public function saveReservation(Request $request)
     {
       $user = Auth::User();
+
+ //create input validation rule for dates
+ $validateInput = $request->validate([
+    "check_in_date"=> 'required|date',
+    'check_out_date'=> 'required|date',
+
+  ]);
+
+
       $reservation = new Reservation;
       $reservation->user_id = $user->id;
       $reservation->hotel_id = $request->hotel_id;
       $reservation->room_id = $request->room_id;
-      $reservation->check_in_date = $request->check_in_date;
-      $reservation->check_out_date = $request->check_out_date;
+      $reservation->check_in_date = $validateInput['check_in_date'];
+      $reservation->check_out_date = $validateInput['check_out_date'];
       if($reservation->save()){
           return redirect()->route('reservation.manage' , $user->id)->with('success', 'Reservation successfully done!');
       }else{
