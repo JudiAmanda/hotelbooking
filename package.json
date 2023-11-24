@@ -2,7 +2,7 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "start": "node main.mjs",
+        "start": "npm run dev",
         "dev": "vite",
         "build": "vite build"
     },
