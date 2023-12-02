@@ -14,14 +14,14 @@ class DatabaseSeeder extends Seeder
     {
 
 
-        //\App\Models\Admin::factory()->create();
-
+        \App\Models\Admin::factory()->create();
+/*
         $this->call([
             StateSeeder::class,
             HotelSeeder::class,
             RoomSeeder::class,
         ]);
-    
+    */
 
         // \App\Models\User::factory(10)->create();
 

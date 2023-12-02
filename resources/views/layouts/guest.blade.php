@@ -22,11 +22,12 @@
     <body>
 
 
-    <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 selection:bg-red-500 selection:text-white">
+    <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-emerald-500 selection:bg-red-500 selection:text-white">
             
             @if (Route::has('login'))
                         <div class="w-full sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10
                         bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% ">
+                        <a href="/"><img src="/images/logo.png" width="70" height="30" style="position:absolute; top: 3px;" /></a>
                             @auth
                                 <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
                             @else
