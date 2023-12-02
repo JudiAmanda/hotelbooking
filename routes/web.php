@@ -7,6 +7,8 @@ use App\Models\Hotel;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\StateController;
+use App\Http\Controllers\RoomController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +61,25 @@ Route::group(['prefix'=>'admin','middleware'=>['admin:admin', 'throttle:3, 1']],
 Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/dashboard', function () {
     return view('admin-dashboard');
 })->name('admin.dashboard');
+
+// State addition form route from admin area
+Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/add-state', [StateController::class, 'stateForm'])->name('add_state');
+
+// Route for handling state submission form
+Route::middleware(['auth:sanctum,admin', 'verified'])->post('/admin/submit-state', [StateController::class, 'submitStateForm'])->name('submit_state');
+
+
+// Hotel addition form route in admin area
+Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/add-hotel', [HotelController::class, 'hotelForm'])->name('add_hotel');
+
+// Route for handling hotel submission form
+Route::middleware(['auth:sanctum,admin', 'verified'])->post('/admin/submit-hotel', [HotelController::class, 'submitHotelForm'])->name('submit_hotel');
+
+// Room addition form route in admin area
+Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/add-room', [RoomController::class, 'roomForm'])->name('add_room');
+
+// Route for handling room submission form
+Route::middleware(['auth:sanctum,admin', 'verified'])->post('/admin/submit-room', [RoomController::class, 'submitRoomForm'])->name('submit_room');
 
 Route::get('/hotels', [HotelController::class, 'index'])->name('hotels');
 

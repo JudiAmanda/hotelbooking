@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>MichBooking</b> ',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -294,7 +294,7 @@ return [
         [
             'type'         => 'navbar-search',
             'text'         => 'search',
-            'topnav_right' => true,
+            'topnav_right' => false,
         ],
         [
             'type'         => 'fullscreen-widget',
@@ -312,23 +312,34 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
+            'text'        => 'Dashboard',
+            'url'         => 'admin/dashboard',
+            'icon'        => 'far fa-fw fa-user',
+        ],
+		[
+            'text'        => 'States',
+            'url'         => 'admin/add-state',
+            'icon'        => 'far fa-fw fa-file',
+        ],
+		[
+            'text'        => 'Hotels',
+            'url'         => 'admin/add-hotel',
+            'icon'        => 'far fa-fw fa-user',
+        ],
+		
+		[
+            'text'        => 'Rooms',
+            'url'         => 'admin/add-room',
+            'icon'        => 'far fa-fw fa-user',
+        ],
+		
+		[
+            'text'        => 'Reviews',
             'url'         => 'admin/pages',
             'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
         ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
+		
+       
         [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
@@ -367,22 +378,8 @@ return [
                 ],
             ],
         ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+        
+      
     ],
 
     /*
